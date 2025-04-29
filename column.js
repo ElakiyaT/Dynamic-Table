@@ -5,6 +5,8 @@ export function getColumns() {
       label: 'ID',
       type: 'number',
       sortable: true,
+      resizable: true,
+      sortIcon: '▲',
       render: (value) => {
         const span = document.createElement('span');
         span.textContent = value;
@@ -17,6 +19,8 @@ export function getColumns() {
       label: 'NAME',
       type: 'string',
       sortable: true,
+      resizable: true,
+      sortIcon: '▲',
       render: (value) => {
         const span = document.createElement('span');
         span.textContent = value;
@@ -29,11 +33,21 @@ export function getColumns() {
       label: 'AGE',
       type: 'number',
       sortable: true,
+      resizable: true,
+      customSortRanges: [
+        { min: 0, max: 10 },
+        { min: 10, max: 20 },
+        { min: 20, max: 30 },
+        { min: 30, max: 40 },
+        { min: 40, max: 50 },
+        { min: 50, max: 60 },
+        { min: 60, max: Infinity }
+      ],
       render: (value) => {
         const span = document.createElement('span');
         let emoji = '';
         let label = '';
-
+    
         if (value > 60) {
           emoji = '👴';
           label = 'Senior';
@@ -50,18 +64,20 @@ export function getColumns() {
           emoji = '👶';
           label = 'Teen/Child';
         }
-
+    
         span.textContent = `${emoji} ${value} (${label})`;
-        span.style.fontWeight = 'bold';
-        span.style.fontSize = '14px';
+        span.className = 'age-label';
         return span;
       }
     },
+    
     {
       key: 'active',
       label: 'ACTIVE / INACTIVE',
       type: 'boolean',
       sortable: true,
+      resizable: true,
+      sortIcon: '▲',
       render: (value) => {
         const span = document.createElement('span');
         span.textContent = value ? '✅ Active' : '❌ Inactive';

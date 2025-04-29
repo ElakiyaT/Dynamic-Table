@@ -4,20 +4,24 @@ HTML + CSS + JavaScript (without any frameworks)                 Done
 No innerHTML or inbuilt table elements used only DIV             Done
 Sorting, search, custom cell rendering, and virtual scrolling    Done
 Each column includes key,label,type,sortable,and custom render() Done
-Virtual scrolling using buffer size & row height                 Done
 Global text search                                               Done
 column width adjustments, ensuring flexibility                   Done
 Responsive Design Done                                           Done
+Buffer Size given 5                                              Done
+Debouncing                                                       Working
+
 
 Self Review:
 
 Custom Cell Rendering Previously given color for AGE now Changed To
 
-Custom render functions per column:
+Custom render per column:
 
 Age with emoji and label.
 Active/inactive with emojis and colors.
 
 Changed the Text as BOLD for the TABLE columns(styling done)
-Search is done using name (if i give one letter)
+Search is done using name
+
+In JS i have given CSS for sorting working on it.
 

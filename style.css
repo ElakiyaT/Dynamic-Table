@@ -24,6 +24,7 @@ input[type="text"] {
   width: 80%;
   margin: 20px auto;
   overflow: hidden;
+  border: 1px solid #ccc;
 }
 
 .flex-table {
@@ -44,7 +45,9 @@ input[type="text"] {
   flex: 1;
   text-align: left;
   padding: 0 10px;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #ccc; 
+  cursor: pointer;
+  position: relative; /* needed for resizer positioning */
 }
 
 .flex-header .flex-cell:last-child {
@@ -54,14 +57,107 @@ input[type="text"] {
 .flex-body {
   max-height: 400px;
   overflow-y: auto;
+  position: relative;
 }
 
 .flex-row {
   display: flex;
   border-top: 1px solid #ccc;
   background-color: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 10px 0; /* Increased vertical padding */
+  min-height: 40px; /* Optional: ensures a minimum row height */
+  align-items: center; /* Vertically center content */
 }
 
 .flex-row:nth-child(even) {
   background-color: #f9f9f9;
 }
+
+
+
+/* Cell content styling */
+.bold-text {
+  font-weight: bold;
+}
+
+.age-span {
+  font-size: 14px;
+}
+
+.active-status {
+  font-weight: bold;
+  color: #2ECC71;
+}
+
+.inactive-status {
+  font-weight: bold;
+  color: #E74C3C;
+}
+
+
+.no-data-message {
+  padding: 20px;
+  text-align: center;
+  color: #776a6a;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.sort-icon {
+  margin-left: 8px;
+  font-size: 14px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  color: #888;
+}
+
+.sort-icon::after {
+  content: '';
+}
+
+.sort-icon.asc::after {
+  content: "↑";
+  color: #007bff;
+  font-weight: bold;
+}
+
+.sort-icon.desc::after {
+  content: "↓";
+  color: #007bff;
+  font-weight: bold;
+}
+
+
+#age-range {
+  padding: 10px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.age-range-dropdown {
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.resizer {
+  width: 5px;
+  cursor: col-resize;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.flex-cell.resizable {
+  position: relative;
+}
+
+
+
